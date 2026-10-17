@@ -40,16 +40,89 @@
         </nav>
     </header>
 
-    <!-- Konten sementara -->
-    <main class="mx-auto max-w-7xl px-6 py-16">
-        <h1 class="text-4xl font-semibold text-slate-900">
-            Petualanganmu Dimulai di Sini!
-        </h1>
+    
+<!-- Beranda -->
+<main>
+    
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>Temukan Petualangan Serumu Disini!</h1>
 
-        <p class="mt-4 text-lg text-gray-600">
-            Temukan wahana favoritmu bersama WahanaGo.
-        </p>
-    </main>
+        <div class="hero-action">
+            <h2>Jelajahi berbagai wahana menarik bersama WahanaGo</h2>
+
+            <a href="#wahana" class="btn-jelajahi">
+            Jelajahi Wahana <span>→</span>
+            </a>
+
+        </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- Jelajahi Wahana -->
+<section id="wahana" class="wahana-section">
+    <div class="wahana-header">
+        <h2>Jelajahi Wahana</h2>
+        <p>Temukan berbagai wahana menarik yang dapat anda nimati</p>
+    </div>
+
+    <div
+        <div id="daftar-wahana" 
+        class="daftar-wahana">
+    >
+        Memuat daftar wahana...
+    </div>
+    
+</section>
+
+    <script>
+    async function ambilWahana() {
+        const daftarWahana = document.getElementById('daftar-wahana');
+
+        try {
+            const response = await fetch(
+                'http://127.0.0.1:8000/api/wahana'
+            );
+
+            if (!response.ok) {
+                throw new Error('Gagal mengambil data wahana');
+            }
+
+            const wahana = await response.json();
+
+            daftarWahana.innerHTML = '';
+
+            wahana.forEach(item => {
+                const kartu = document.createElement('div');
+
+                kartu.className = 'kartu-wahana';
+
+                kartu.innerHTML = `
+                    <span class="kategori-wahana">
+                        ${item.kategori}
+                    </span>
+
+                    <h3>${item.nama}</h3>
+
+                    <p class="harga-wahana">
+                        Rp${item.harga.toLocaleString('id-ID')}
+                    </p>
+                `;
+
+                daftarWahana.appendChild(kartu);
+            });
+
+        } catch (error) {
+            console.error('Terjadi kesalahan:', error);
+            daftarWahana.textContent =
+                'Gagal memuat wahana. Periksa koneksi ke server.';
+        }
+    }
+
+    ambilWahana();
+    </script>
 
 </body>
 </html>

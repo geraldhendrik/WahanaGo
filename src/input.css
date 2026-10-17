@@ -1,15 +1,240 @@
+
 @import "tailwindcss";
 
 :root {
     --1: #ff3ea5;
     --2: #ffc7e8;
     --3: #35D6D1;
-    --4: #FFE45E;
+    --4: #6f5d00;
     --5: #FFF3DD;
     --6: #FFF6E7;
+    --7: #FFE45E;
+    --8: #0078a3;
+}
 
-    body {
-        font-family: Poppins, sans-serif;
-        color: var(--1);
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--1);
+}
+
+/* HERO SECTION */
+.hero-section {
+    height: 800px;
+    width: 100%;
+
+    background-image: url("../Aset/Images/Aset-2.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    
+    padding: 50px;
+    color: var(--5);
+
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    /* Bentuk dan garis kaca */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 24px;
+
+    /* Lebar kotak */
+    max-width: 1300px;
+}
+
+.hero-content h1 {
+    font-size: 95px;
+    font-weight: 700;
+    padding: 10px;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-shadow: 0px 3px 10px rgba(0, 0, 0, 0.250);
+}
+
+.hero-content h2 {
+    font-size: 30px;
+    font-weight: 400;
+
+    text-shadow: 0px 5px 10px rgba(0, 0, 0, 0.250);
+}
+
+.btn-jelajahi {
+    display: inline-block;
+    padding: 7px 24px;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--6);
+    background-color: var(--1);
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-action {
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+.wahana-section {
+    padding: 100px 50px;
+    background-color: white;
+}
+
+.wahana-header h2 {
+    font-size: 5rem;
+    font-weight: 600;
+    color: var(--8);
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: center;
+    letter-spacing: -2px;
+    line-height: 1.2;
+    text-shadow: 0px 1px 10px rgba(0, 234, 255, 0.25);
+}
+
+.wahana-header p {
+    font-size: 25px;
+    font-weight: 400;
+    color: var(--8);
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: center;
+    text-shadow: 0px 1px 10px rgba(0, 234, 255, 0.25);
+}
+
+
+/* Container untuk semua kartu wahana */
+.daftar-wahana {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+/* Box setiap wahana */
+.kartu-wahana {
+    background-color: var(--5);
+    border: 2px solid var(--7);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efek saat mouse diarahkan ke kartu */
+.kartu-wahana:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 62, 165, 0.18);
+}
+
+/* Label kategori */
+.kategori-wahana {
+    display: inline-block;
+    background-color: var(--2);
+    color: var(--1);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Nama wahana */
+.kartu-wahana h3 {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--8);
+}
+
+/* Harga tiket */
+.harga-wahana {
+    margin-top: 12px;
+    font-size: 24px;
+    font-weight: 800;
+    color: var(--8);
+}
+
+/* Tampilan tablet dan HP */
+@media (max-width: 768px) {
+    .daftar-wahana {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .daftar-wahana {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Container untuk semua kartu wahana */
+.daftar-wahana {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+/* Box setiap wahana */
+.kartu-wahana {
+    background-color: white;
+    border: 1px solid var(--3);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(190, 177, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Efek saat mouse diarahkan ke kartu */
+.kartu-wahana:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(255, 204, 62, 0.18);
+}
+
+/* Label kategori */
+.kategori-wahana {
+    display: inline-block;
+    background-color: var(--6);
+    color: var(--8);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Nama wahana */
+.kartu-wahana h3 {
+    margin-top: 16px;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--8);
+}
+
+/* Harga tiket */
+.harga-wahana {
+    margin-top: 12px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--8);
+}
+
+/* Tampilan tablet dan HP */
+@media (max-width: 768px) {
+    .daftar-wahana {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .daftar-wahana {
+        grid-template-columns: 1fr;
     }
 }
